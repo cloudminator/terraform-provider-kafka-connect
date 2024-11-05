@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"gopkg.in/resty.v1"
 
-	kc "github.com/ricardo-ch/go-kafka-connect/v3/lib/connectors"
+	kc "github.com/cloudminator/go-kafka-connect/v3/lib/connectors"
 )
 
 func Provider() *schema.Provider {
@@ -60,6 +60,11 @@ func Provider() *schema.Provider {
 				// No DefaultFunc here to read from the env on account of this issue:
 				// https://github.com/hashicorp/terraform-plugin-sdk/issues/142
 			},
+			"timeout": {
+				Type:        schema.TypeInt,
+				Optional:    true,
+				DefaultFunc: schema.EnvDefaultFunc("KAFKA_CONNECT_TIMEOUT", 10),
+			},
 		},
 		ConfigureContextFunc: providerConfigure,
 		ResourcesMap: map[string]*schema.Resource{
@@ -109,6 +114,9 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 			c.SetHeader(k, v.(string))
 		}
 	}
+
+	timeout := d.Get("timeout").(int)
+	c.SetTimeout(timeout)
 
 	return c, nil
 }
