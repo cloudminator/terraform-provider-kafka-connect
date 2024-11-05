@@ -1,12 +1,12 @@
 # `terraform-plugin-kafka-connect`
-[![test](https://github.com/Mongey/terraform-provider-kafka-connect/actions/workflows/test.yml/badge.svg)](https://github.com/Mongey/terraform-provider-kafka-connect/actions/workflows/test.yml)
+[![test](https://github.com/cloudminator/terraform-provider-kafka-connect/actions/workflows/test.yml/badge.svg)](https://github.com/cloudminator/terraform-provider-kafka-connect/actions/workflows/test.yml)
 
 A [Terraform][1] plugin for managing [Apache Kafka Connect][2].
 
 ## Installation
 
 Download and extract the [latest
-release](https://github.com/Mongey/terraform-provider-kafka-connect/releases/latest) to
+release](https://github.com/cloudminator/terraform-provider-kafka-connect/releases/latest) to
 your [terraform plugin directory][third-party-plugins] (typically `~/.terraform.d/plugins/`)
 
 ## Example
@@ -66,10 +66,10 @@ resource "kafka-connect_connector" "sqlite-sink" {
 ## Developing
 
 0. [Install go][install-go]
-0. Clone repository to: `$GOPATH/src/github.com/Mongey/terraform-provider-kafka-connect`
+0. Clone repository to: `$GOPATH/src/github.com/cloudminator/terraform-provider-kafka-connect`
     ``` bash
-    mkdir -p $GOPATH/src/github.com/Mongey/terraform-provider-kafka-connect; cd $GOPATH/src/github.com/Mongey/
-    git clone https://github.com/Mongey/terraform-provider-kafka-connect.git
+    mkdir -p $GOPATH/src/github.com/cloudminator/terraform-provider-kafka-connect; cd $GOPATH/src/github.com/cloudminator/
+    git clone https://github.com/cloudminator/terraform-provider-kafka-connect.git
     ```
 0. Build the provider `make build`
 0. Run the tests `make test`

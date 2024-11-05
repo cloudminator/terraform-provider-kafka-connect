@@ -1,4 +1,4 @@
-module github.com/Mongey/terraform-provider-kafka-connect
+module github.com/cloudminator/terraform-provider-kafka-connect
 
 go 1.16
 
